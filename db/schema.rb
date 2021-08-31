@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2021_08_30_213231) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "login", null: false
-    t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["login"], name: "index_users_on_login", unique: true
