@@ -36,18 +36,6 @@ ActiveRecord::Schema.define(version: 2021_08_30_213231) do
     t.index ["login"], name: "index_users_on_login", unique: true
   end
 
-  create_table "users_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "group_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["group_id"], name: "index_users_groups_on_group_id"
-    t.index ["user_id", "group_id"], name: "users_groups_user_and_group_idx", unique: true
-    t.index ["user_id"], name: "index_users_groups_on_user_id"
-  end
-
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
-  add_foreign_key "users_groups", "groups"
-  add_foreign_key "users_groups", "users"
 end
