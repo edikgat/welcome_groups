@@ -4,6 +4,7 @@
       <th>Name</th>
       <th>Created At</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,9 @@
         </td>
         <td>
           <%= group.created_at %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_group_path(group), class: "btn btn-sm btn-warning" %>
         </td>
         <td>
           <%= link_to "Enter", group_path(group), class: "btn btn-sm btn-primary" %>
