@@ -90,6 +90,12 @@
     color: #a3afb7
   }
 
+  .input-group-btn {
+    .btn {
+      margin-left: 10px;
+    }
+  }
+
   .panel-footer {
     padding: 0 30px 15px;
     background-color: transparent;
