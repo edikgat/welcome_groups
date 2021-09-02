@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
+    group
   end
 
   def new
@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
 
     if @group.save
-      flash[:notice] = "Group was created"
+      flash[:notice] = 'Group was created'
       redirect_to groups_path
     else
       render :new
@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
 
   def update
     if group.update(group_params)
-      flash[:notice] = "Group was updated"
+      flash[:notice] = 'Group was updated'
       redirect_to groups_path
     else
       render :edit
