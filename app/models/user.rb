@@ -5,4 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :registerable,
          :validatable
+
+  validates :login, presence: true, uniqueness: { case_sensitive: false }
 end

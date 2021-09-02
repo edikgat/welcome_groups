@@ -1,15 +1,15 @@
 <% invalid_name = group.errors.include?(:name) %>
 <%= form_for group do |f| %>
-  <div class="mb-3">
+  <div class='mb-3'>
     <%= f.label :name, class: 'form-label' %>
     <%= f.text_field :name, autofocus: true, class: "form-control #{'is-invalid' if invalid_name}" %>
     <% if invalid_name %>
-      <div class="invalid-feedback d-block">
+      <div class='invalid-feedback d-block'>
         <% group.errors.full_messages_for(:name).each do |error_message| %>
           <%= error_message %>.
         <% end %>
       </div>
     <% end %>
   </div>
-  <%= f.submit "Save", class: 'btn btn-primary' %>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
 <% end %>
