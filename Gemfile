@@ -20,6 +20,9 @@ gem 'webpacker', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.8'
 gem 'pundit', '~> 2.1.1'
+gem 'react-rails', '~> 2.6.1'
+gem 'roar', '~> 1.1.0'
+gem 'multi_json', '~> 1.15.0'
 
 group :development, :test do
   gem 'faker', '~> 2.19.0'
@@ -34,9 +37,6 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :test do

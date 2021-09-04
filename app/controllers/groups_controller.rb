@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
 
   def show
     authorize_group
+    @group_chat = GroupChatRepresenter.new(group).as_json
   end
 
   def new
@@ -31,6 +32,7 @@ class GroupsController < ApplicationController
   def update
     authorize_group
     if group.update(group_params)
+      GroupChat::GroupRenamedBroadcastJob.perform_later(group.id)
       flash[:notice] = 'Group was updated'
       redirect_to groups_path
     else
@@ -41,6 +43,7 @@ class GroupsController < ApplicationController
   def destroy
     authorize_group
     group.destroy
+    GroupChat::GroupRemovedBroadcastJob.perform_later(group.id)
     flash[:notice] = 'Group was removed'
     redirect_to groups_path
   end

@@ -1,5 +1,1 @@
-<h3 class="text-center">
-  <%= @group.name %>
-</h3>
-
-<%= javascript_pack_tag 'group_chats' %>
+<%= react_component('GroupChat/GroupChat', { group_chat: @group_chat, current_user_id: current_user.id }) %>
