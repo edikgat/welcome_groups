@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 2021_08_30_213231) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "owner_id"
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_groups_on_name", unique: true
+    t.index ["owner_id"], name: "index_groups_on_owner_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_213231) do
     t.index ["login"], name: "index_users_on_login", unique: true
   end
 
+  add_foreign_key "groups", "users", column: "owner_id"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
 end

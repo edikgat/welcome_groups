@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  has_many :users_groups, dependent: :destroy, inverse_of: :user
-  has_many :groups, through: :users_groups
+  has_many :groups, inverse_of: :owner
 
   devise :database_authenticatable,
          :registerable,

@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :group do
-    sequence(:name) { |n| "name_#{n}" }
+    name { Faker::Games::Pokemon.unique.name }
+    owner { build(:user) }
   end
 end
