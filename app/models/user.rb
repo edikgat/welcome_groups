@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :groups, inverse_of: :owner
+  has_many :groups, foreign_key: :owner_id
+  has_many :messages, dependent: :destroy
 
   devise :database_authenticatable,
          :registerable,

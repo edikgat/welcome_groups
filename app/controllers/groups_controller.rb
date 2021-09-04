@@ -1,24 +1,25 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = Group.all
+    @groups = group_scope
   end
 
   def show
-    group
+    authorize_group
   end
 
   def new
-    @group = Group.new
+    @group = current_user.groups.new
+    authorize_group
   end
 
   def edit
-    group
+    authorize_group
   end
 
   def create
-    @group = Group.new(group_params)
-
+    @group = current_user.groups.new(group_params)
+    authorize_group
     if @group.save
       flash[:notice] = 'Group was created'
       redirect_to groups_path
@@ -28,6 +29,7 @@ class GroupsController < ApplicationController
   end
 
   def update
+    authorize_group
     if group.update(group_params)
       flash[:notice] = 'Group was updated'
       redirect_to groups_path
@@ -36,10 +38,25 @@ class GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize_group
+    group.destroy
+    flash[:notice] = 'Group was removed'
+    redirect_to groups_path
+  end
+
   private
 
   def group
-    @group ||= Group.find(params[:id])
+    @group ||= group_scope.find(params[:id])
+  end
+
+  def group_scope
+    policy_scope(Group)
+  end
+
+  def authorize_group
+   authorize group
   end
 
   def group_params
