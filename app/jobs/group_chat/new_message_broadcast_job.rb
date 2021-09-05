@@ -2,7 +2,7 @@
 
 module GroupChat
   class NewMessageBroadcastJob < BaseBroadcastJob
-    NEW_MESSAGE_TYPE = 'new'
+    NEW_MESSAGE_TYPE = 'message_new'
     private_constant :NEW_MESSAGE_TYPE
 
     attr_reader :message_id

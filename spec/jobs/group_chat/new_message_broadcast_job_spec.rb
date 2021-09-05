@@ -22,7 +22,7 @@ describe GroupChat::NewMessageBroadcastJob do
       it 'broadcasts data' do
         expect { job }
           .to have_broadcasted_to("group_chat_#{group.id}_channel")
-          .with({ type: 'new', data: broadcast_data })
+          .with({ type: 'message_new', data: broadcast_data })
       end
     end
 

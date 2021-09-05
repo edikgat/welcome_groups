@@ -48,7 +48,7 @@ describe GroupChatChannel, type: :channel do
 
       it 'transmits error info' do
         create_message_request
-        expect(transmissions.last).to eq({ 'type' => 'error', 'data' => ["Content can't be blank"] })
+        expect(transmissions.last).to eq({ 'type' => 'message_error', 'data' => ["Content can't be blank"] })
       end
 
       it 'not enques job' do

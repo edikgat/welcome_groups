@@ -2,7 +2,7 @@
 
 module GroupChat
   class MessageCreationForm
-    MESSAGE_CREATION_ERROR_TYPE = 'error'
+    MESSAGE_CREATION_ERROR_TYPE = 'message_error'
     private_constant :MESSAGE_CREATION_ERROR_TYPE
 
     attr_reader :group_id, :user_id, :content
@@ -20,7 +20,7 @@ module GroupChat
     end
 
     def error_response
-      { type: 'error', data: message.errors.full_messages }
+      { type: MESSAGE_CREATION_ERROR_TYPE, data: message.errors.full_messages }
     end
   end
 end

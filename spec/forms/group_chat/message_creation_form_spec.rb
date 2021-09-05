@@ -58,7 +58,7 @@ describe GroupChat::MessageCreationForm do
       let(:content) { '' }
 
       it 'returns error data' do
-        expect(form.error_response).to eq({ data: ["Content can't be blank"], type: 'error' })
+        expect(form.error_response).to eq({ data: ["Content can't be blank"], type: 'message_error' })
       end
     end
 
@@ -66,7 +66,7 @@ describe GroupChat::MessageCreationForm do
       let(:user_id) { '' }
 
       it 'returns error data' do
-        expect(form.error_response).to eq({ data: ['User must exist', "User can't be blank"], type: 'error' })
+        expect(form.error_response).to eq({ data: ['User must exist', "User can't be blank"], type: 'message_error' })
       end
     end
 
@@ -74,7 +74,7 @@ describe GroupChat::MessageCreationForm do
       let(:group_id) { '' }
 
       it 'returns error data' do
-        expect(form.error_response).to eq({ data: ['Group must exist', "Group can't be blank"], type: 'error' })
+        expect(form.error_response).to eq({ data: ['Group must exist', "Group can't be blank"], type: 'message_error' })
       end
     end
   end

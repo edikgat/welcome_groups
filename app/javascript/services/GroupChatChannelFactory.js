@@ -10,10 +10,10 @@ class GroupChatChannelFactory {
       }, {
         received: ({type, data}) => {
           switch (type) {
-            case 'new':
+            case 'message_new':
               callback.newMessage(data)
               break
-            case 'error':
+            case 'message_error':
               callback.addErrors(data)
               break
             case 'group_removed':
