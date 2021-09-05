@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GroupChat
   class GroupRemovedBroadcastJob < BaseBroadcastJob
     GROUP_REMOVED_TYPE = 'group_removed'

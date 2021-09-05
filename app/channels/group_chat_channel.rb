@@ -1,7 +1,8 @@
-class GroupChatChannel < ApplicationCable::Channel
+# frozen_string_literal: true
 
+class GroupChatChannel < ApplicationCable::Channel
   def subscribed
-    stream_from group_chat
+    stream_from(group_chat)
   end
 
   def unsubscribed
@@ -11,7 +12,7 @@ class GroupChatChannel < ApplicationCable::Channel
   def create_message(data)
     message = create_user_message_for(data)
     if message.errors.present?
-      transmit({type: 'error', data: message.errors.full_messages})
+      transmit({ type: 'error', data: message.errors.full_messages })
     else
       GroupChat::NewMessageBroadcastJob.perform_later(message.id)
     end
@@ -26,5 +27,4 @@ class GroupChatChannel < ApplicationCable::Channel
   def group_chat
     "group_chat_#{params['group_id']}_channel"
   end
-
 end

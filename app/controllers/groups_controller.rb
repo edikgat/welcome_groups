@@ -1,5 +1,6 @@
-class GroupsController < ApplicationController
+# frozen_string_literal: true
 
+class GroupsController < ApplicationController
   def index
     @groups = group_scope
   end
@@ -42,7 +43,7 @@ class GroupsController < ApplicationController
 
   def destroy
     authorize_group
-    group.destroy
+    group.destroy!
     GroupChat::GroupRemovedBroadcastJob.perform_later(group.id)
     flash[:notice] = 'Group was removed'
     redirect_to groups_path
@@ -59,7 +60,7 @@ class GroupsController < ApplicationController
   end
 
   def authorize_group
-   authorize group
+    authorize(group)
   end
 
   def group_params

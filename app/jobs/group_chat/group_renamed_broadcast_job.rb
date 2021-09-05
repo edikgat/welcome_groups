@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GroupChat
   class GroupRenamedBroadcastJob < BaseBroadcastJob
     GROUP_RENAMED_TYPE = 'group_renamed'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GroupChat
   class BaseBroadcastJob < ApplicationJob
     queue_as :group_chat

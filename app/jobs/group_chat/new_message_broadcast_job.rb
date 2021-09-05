@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GroupChat
   class NewMessageBroadcastJob < BaseBroadcastJob
     NEW_MESSAGE_TYPE = 'new'
@@ -33,6 +35,5 @@ module GroupChat
     def log_error
       puts("message with id: #{message_id} - not found")
     end
-
   end
 end
