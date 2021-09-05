@@ -23,6 +23,15 @@ Style/MissingElse:
 RSpec/ExampleLength:
   Max: 15
 
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
+
+Rails/FilePath:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
 Style/SymbolArray:
   Exclude:
     - 'db/schema.rb'
@@ -74,6 +83,7 @@ RSpec/MultipleExpectations:
 
 Style/StringHashKeys:
   Exclude:
+    - 'config/*/**'
     - '**/*_spec.rb'
 
 Style/MethodCallWithArgsParentheses:

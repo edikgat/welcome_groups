@@ -14,7 +14,7 @@ class GroupChatMessagesList extends React.Component {
     const { currentUserId } = this.props
 
     return messages.map((message) =>
-      <div className={ message.user.id == currentUserId ? 'group-chat' : 'group-chat group-chat-left' } key={ message.id }>
+      <div className={ message.user.id == currentUserId ? 'group-chat group-chat-right' : 'group-chat group-chat-left' } key={ message.id }>
         <GroupChatMessage message={ message } />
       </div>
     );

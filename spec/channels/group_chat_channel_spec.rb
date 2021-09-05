@@ -46,12 +46,12 @@ describe GroupChatChannel, type: :channel do
     context 'when no body' do
       let(:request_content) { { content: '' } }
 
-      it 'transmit error info' do
+      it 'transmits error info' do
         create_message_request
         expect(transmissions.last).to eq({ 'type' => 'error', 'data' => ["Content can't be blank"] })
       end
 
-      it 'not enque job' do
+      it 'not enques job' do
         expect { create_message_request }
           .not_to have_enqueued_job(GroupChat::NewMessageBroadcastJob)
       end
@@ -60,7 +60,7 @@ describe GroupChatChannel, type: :channel do
     context 'when content exists' do
       let(:request_content) { { 'content' => '123' } }
 
-      it 'enqueue job' do
+      it 'enqueues job' do
         expect { create_message_request }
           .to(
             have_enqueued_job(GroupChat::NewMessageBroadcastJob).on_queue('group_chat')

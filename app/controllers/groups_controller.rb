@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
     @group = current_user.groups.new(group_params)
     authorize_group
     if @group.save
-      flash[:notice] = 'Group was created'
+      flash[:notice] = 'Group was successfully created'
       redirect_to groups_path
     else
       render :new
@@ -34,7 +34,7 @@ class GroupsController < ApplicationController
     authorize_group
     if group.update(group_params)
       GroupChat::GroupRenamedBroadcastJob.perform_later(group.id)
-      flash[:notice] = 'Group was updated'
+      flash[:notice] = 'Group was successfully updated'
       redirect_to groups_path
     else
       render :edit
@@ -43,9 +43,9 @@ class GroupsController < ApplicationController
 
   def destroy
     authorize_group
+    GroupChat::GroupRemovedBroadcastJob.perform_later(params[:id])
     group.destroy!
-    GroupChat::GroupRemovedBroadcastJob.perform_later(group.id)
-    flash[:notice] = 'Group was removed'
+    flash[:notice] = 'Group was successfully removed'
     redirect_to groups_path
   end
 
