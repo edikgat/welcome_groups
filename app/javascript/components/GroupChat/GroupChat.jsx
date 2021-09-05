@@ -31,7 +31,7 @@ class GroupChat extends React.Component {
   }
   postMessage(event){
     event.preventDefault()
-    this.chatChannel.perform('create_message', { group_id: this.props.group_chat.id, content: this.messageContentRef.current.value })
+    this.chatChannel.perform('create_message', { content: this.messageContentRef.current.value })
     this.messageContentRef.current.value = ''
   }
   addErrors(errors){

@@ -37,6 +37,7 @@ group :development do
 end
 
 group :test do
+  gem 'action-cable-testing', '~> 0.6.1'
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner-active_record', '~> 2.0.0'
   gem 'selenium-webdriver', '~> 3.142.7'

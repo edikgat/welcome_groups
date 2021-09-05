@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action-cable-testing (0.6.1)
+      actioncable (>= 5.0)
     actioncable (6.0.4.1)
       actionpack (= 6.0.4.1)
       nio4r (~> 2.0)
@@ -294,6 +296,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  action-cable-testing (~> 0.6.1)
   bootsnap (>= 1.4.2)
   brakeman (~> 5.1.1)
   capybara (>= 2.15)

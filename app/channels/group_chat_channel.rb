@@ -2,7 +2,11 @@
 
 class GroupChatChannel < ApplicationCable::Channel
   def subscribed
-    stream_from(group_chat)
+    if Group.exists?(id: params['group_id'])
+      stream_from(group_chat)
+    else
+      reject
+    end
   end
 
   def unsubscribed
@@ -10,19 +14,19 @@ class GroupChatChannel < ApplicationCable::Channel
   end
 
   def create_message(data)
-    message = create_user_message_for(data)
-    if message.errors.present?
-      transmit({ type: 'error', data: message.errors.full_messages })
+    form = GroupChat::MessageCreationForm.new(
+      content: data['content'],
+      group_id: params[:group_id],
+      user_id: current_user.id
+    )
+    if form.save
+      GroupChat::NewMessageBroadcastJob.perform_later(form.message.id)
     else
-      GroupChat::NewMessageBroadcastJob.perform_later(message.id)
+      transmit(form.error_response)
     end
   end
 
   private
-
-  def create_user_message_for(data)
-    current_user.messages.create(content: data['content'], group_id: data['group_id'])
-  end
 
   def group_chat
     "group_chat_#{params['group_id']}_channel"
