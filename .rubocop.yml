@@ -9,6 +9,7 @@ AllCops:
   NewCops: enable
   EnabledByDefault: true
   Exclude:
+    - 'node_modules/**/*'
     - 'db/schema.rb'
     - 'bin/*'
 
@@ -47,9 +48,6 @@ Style/Copyright:
 Lint/ConstantResolution:
   Enabled: false
 
-# Lint/NumberConversion:
-#   Enabled: false
-
 Style/DocumentationMethod:
   Enabled: false
 
@@ -60,6 +58,25 @@ Metrics/BlockLength:
   Max: 30
   Exclude:
     - 'spec/**/*'
+
+Metrics/ClassLength:
+  Max: 300
+
+Metrics/ModuleLength:
+  Max: 300
+  Exclude:
+    - '**/*_spec.rb'
+
+Style/MethodCallWithArgsParentheses:
+  EnforcedStyle: 'require_parentheses'
+  IgnoredPatterns:
+    - 'puts'
+    - 'to'
+    - 'render'
+    - 'redirect_to'
+    - 'raise'
+  Exclude:
+    - 'db/migrate/*'
 
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
