@@ -315,12 +315,12 @@ DEPENDENCIES
   rubocop-rails (~> 2.11.3)
   rubocop-rspec (~> 2.4.0)
   sass-rails (>= 6)
-  selenium-webdriver
+  selenium-webdriver (~> 3.142.7)
   shoulda-matchers (~> 5.0)
   simplecov (~> 0.21.2)
-  tzinfo-data
+  tzinfo-data (~> 1.2.9)
   web-console (>= 3.3.0)
-  webdrivers
+  webdrivers (~> 4.6.1)
   webpacker (~> 4.0)
 
 RUBY VERSION

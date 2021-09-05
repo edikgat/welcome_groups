@@ -3,6 +3,7 @@
 module GroupChat
   class GroupRenamedBroadcastJob < BaseBroadcastJob
     GROUP_RENAMED_TYPE = 'group_renamed'
+    private_constant :GROUP_RENAMED_TYPE
 
     attr_reader :group_id
 
@@ -31,7 +32,7 @@ module GroupChat
     end
 
     def log_error
-      puts("group with id: #{group_id} - not found")
+      Rails.logger.info("group with id: #{group_id} - not found")
     end
   end
 end

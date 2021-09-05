@@ -6,6 +6,7 @@ class GroupPolicy < ApplicationPolicy
   def initialize(user, group)
     @user = user
     @group = group
+    super
   end
 
   def update?

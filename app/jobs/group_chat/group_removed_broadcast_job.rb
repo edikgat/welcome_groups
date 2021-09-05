@@ -3,6 +3,7 @@
 module GroupChat
   class GroupRemovedBroadcastJob < BaseBroadcastJob
     GROUP_REMOVED_TYPE = 'group_removed'
+    private_constant :GROUP_REMOVED_TYPE
 
     attr_reader :group_id
 

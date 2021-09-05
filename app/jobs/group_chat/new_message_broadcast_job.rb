@@ -3,6 +3,7 @@
 module GroupChat
   class NewMessageBroadcastJob < BaseBroadcastJob
     NEW_MESSAGE_TYPE = 'new'
+    private_constant :NEW_MESSAGE_TYPE
 
     attr_reader :message_id
 
@@ -33,7 +34,7 @@ module GroupChat
     end
 
     def log_error
-      puts("message with id: #{message_id} - not found")
+      Rails.logger.info("message with id: #{message_id} - not found")
     end
   end
 end
