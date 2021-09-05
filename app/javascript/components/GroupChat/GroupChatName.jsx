@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class GroupChatName extends React.Component {
   render(){
@@ -10,6 +11,10 @@ class GroupChatName extends React.Component {
       </h3>
     )
   }
+}
+
+GroupChatName.propTypes = {
+  name: PropTypes.string
 }
 
 export default GroupChatName

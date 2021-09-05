@@ -2,11 +2,13 @@ import React from 'react'
 import GroupChatMessagesList from './GroupChatMessagesList'
 import GroupChatName from './GroupChatName'
 import GroupChatChannelFactory from '../../services/GroupChatChannelFactory'
+import PropTypes from 'prop-types'
 
 class GroupChat extends React.Component {
   constructor(props) {
     super(props)
 
+    this.messageContentRef = React.createRef()
     this.chatFactory = new GroupChatChannelFactory()
     this.state = {
       groupName: props.group_chat.name,
@@ -29,8 +31,8 @@ class GroupChat extends React.Component {
   }
   postMessage(event){
     event.preventDefault()
-    this.chatChannel.perform('create_message', { group_id: this.props.group_chat.id, content: this.refs.content.value })
-    this.refs.content.value = ''
+    this.chatChannel.perform('create_message', { group_id: this.props.group_chat.id, content: this.messageContentRef.current.value })
+    this.messageContentRef.current.value = ''
   }
   addErrors(errors){
     this.setState({errors: errors})
@@ -55,7 +57,7 @@ class GroupChat extends React.Component {
       <div className='panel-footer'>
         <form onSubmit={ this.postMessage.bind(this) }>
           <div className='input-group'>
-            <input type='text' ref='content' className='form-control' placeholder='Say something'></input>
+            <input type='text' ref={ this.messageContentRef } className='form-control' placeholder='Say something'></input>
             <span className='input-group-btn'>
               <button type='submit' className='btn btn-primary'>Send</button>
             </span>
@@ -82,6 +84,12 @@ class GroupChat extends React.Component {
       </div>
     )
   }
+}
+
+GroupChat.propTypes = {
+  current_user_id: PropTypes.number,
+  group_chat: PropTypes.object,
+  groupName: PropTypes.string
 }
 
 export default GroupChat

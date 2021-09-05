@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class GroupChatMessage extends React.Component {
   render(){
@@ -18,6 +19,10 @@ class GroupChatMessage extends React.Component {
       </div>
     )
   }
+}
+
+GroupChatMessage.propTypes = {
+  message: PropTypes.object
 }
 
 export default GroupChatMessage
