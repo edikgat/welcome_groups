@@ -16,7 +16,7 @@ module GroupChat
     private
 
     def content_json
-      { }
+      {}
     end
 
     def job_type

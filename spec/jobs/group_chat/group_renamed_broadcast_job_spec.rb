@@ -7,7 +7,7 @@ describe GroupChat::GroupRenamedBroadcastJob do
 
   let(:group)          { create(:group)                           }
   let(:group_id)       { group.id                                 }
-  let(:broadcast_data) { { name: group.name } }
+  let(:broadcast_data) { { name: group.name }                     }
 
   describe 'perform' do
     context 'when group exists' do
