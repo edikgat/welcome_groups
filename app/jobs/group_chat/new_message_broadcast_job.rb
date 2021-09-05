@@ -34,7 +34,7 @@ module GroupChat
     end
 
     def log_error
-      Rails.logger.info("message with id: #{message_id} - not found")
+      Rails.logger.fatal("message with id: #{message_id} - not found")
     end
   end
 end

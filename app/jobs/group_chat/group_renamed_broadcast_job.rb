@@ -32,7 +32,7 @@ module GroupChat
     end
 
     def log_error
-      Rails.logger.info("group with id: #{group_id} - not found")
+      Rails.logger.fatal("group with id: #{group_id} - not found")
     end
   end
 end
