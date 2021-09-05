@@ -16,7 +16,7 @@ module GroupChat
     private
 
     def content_json
-      { group_id: group_id }
+      { }
     end
 
     def job_type

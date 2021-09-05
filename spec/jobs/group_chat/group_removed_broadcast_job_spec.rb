@@ -6,7 +6,7 @@ describe GroupChat::GroupRemovedBroadcastJob do
   subject(:job) { described_class.perform_now(group_id) }
 
   let(:group_id)       { 123               }
-  let(:broadcast_data) { { group_id: 123 } }
+  let(:broadcast_data) { { } }
 
   describe 'perform' do
     it 'broadcasts data' do
