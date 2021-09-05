@@ -20,6 +20,9 @@ Style/Documentation:
 Style/MissingElse:
   Enabled: false
 
+RSpec/ExampleLength:
+  Max: 15
+
 Style/SymbolArray:
   Exclude:
     - 'db/schema.rb'

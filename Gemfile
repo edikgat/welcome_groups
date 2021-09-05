@@ -43,6 +43,7 @@ group :test do
   gem 'selenium-webdriver', '~> 3.142.7'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', '~> 0.21.2', require: false
+  gem 'timecop', '~> 0.9.4'
   gem 'webdrivers', '~> 4.6.1'
 end
 

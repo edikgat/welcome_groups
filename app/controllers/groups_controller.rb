@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
 
   def show
     authorize_group
-    @group_chat = GroupChatRepresenter.new(group).as_json
+    @group_chat = GroupChat::GroupRepresenter.new(group).as_json
   end
 
   def new
