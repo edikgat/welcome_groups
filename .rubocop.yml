@@ -1,0 +1,65 @@
+require:
+  - rubocop-rspec
+  - rubocop-rails
+
+Rails:
+  Enabled: true
+
+AllCops:
+  NewCops: enable
+  EnabledByDefault: true
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
+
+Style/SymbolArray:
+  Exclude:
+    - 'db/schema.rb'
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'config/initializers/devise.rb'
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/PerceivedComplexity:
+  Max: 8
+
+Metrics/AbcSize:
+  Max: 17
+
+Bundler/GemComment:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Lint/ConstantResolution:
+  Enabled: false
+
+# Lint/NumberConversion:
+#   Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - 'spec/**/*'
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
