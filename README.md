@@ -47,6 +47,7 @@
 - Tests Coverage 98% by [SimpleCov](https://github.com/colszowka/simplecov), including specs for browser requests, representers, background jobs, models, channels specs, policies and forms
 - Code Inspected by [RuboCop](https://github.com/rubocop-hq/rubocop), no offenses detected. Styles Unified by the creating `rubocop.yml` and fixing all related styles issues
 - Code Inspected for security vulnerabilities by [Brakeman](https://github.com/presidentbeef/brakeman), no warnings found
+- `eslint` configured for inspecting js part. JS part was inspected by the `eslint` && `eslint-plugin-react`
 
 ## Requirements
 - Ruby = 2.7.2
@@ -78,4 +79,4 @@
 - Run `rubocop`
 
 ## View Code From the `Rails New`
-- 'https://github.com/edikgat/welcome_groups/compare/rails_new...develop?expand=1'
+- [from rails new to current stage](https://github.com/edikgat/welcome_groups/compare/rails_new...develop?expand=1)

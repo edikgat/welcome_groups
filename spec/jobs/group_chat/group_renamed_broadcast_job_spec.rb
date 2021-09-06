@@ -5,9 +5,9 @@ require 'rails_helper'
 describe GroupChat::GroupRenamedBroadcastJob do
   subject(:job) { described_class.perform_now(group_id) }
 
-  let(:group)          { create(:group)                           }
-  let(:group_id)       { group.id                                 }
-  let(:broadcast_data) { { name: group.name }                     }
+  let(:group)          { create(:group)       }
+  let(:group_id)       { group.id             }
+  let(:broadcast_data) { { name: group.name } }
 
   describe 'perform' do
     context 'when group exists' do

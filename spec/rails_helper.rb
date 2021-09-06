@@ -5,11 +5,11 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
-require('database_cleaner/active_record')
+require 'database_cleaner/active_record'
 require 'timecop'
 require 'pundit/rspec'
-require('capybara/rspec')
-require('capybara-screenshot/rspec')
+require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
 require 'simplecov' if ENV['COVERAGE'] == 'true'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
